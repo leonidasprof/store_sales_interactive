@@ -1,4 +1,3 @@
-
 import os, sys
 sys.path.append(os.getcwd())
 # Lee los datos de ventas
@@ -121,7 +120,53 @@ merged1 = pd.merge(df_itens_pedidos, df_pedidos, on=['producto_id', 'pedido_id']
 merged2 = pd.merge(merged1, df_productos, on='producto_id')
 df_final = pd.merge(merged2, df_vendedores, on='vendedor_id')
 
-print(df_final)
+# Para el gráfico 2, el de líneas
+# month = {	
+#          1:'January',
+# 		 2:'February',
+# 		 3:'March',
+# 		 4:'April',
+# 		 5:'May',
+# 		 6:'June',
+#          7:'July',
+#          8:'August',
+#          9:'September',
+#          10:'October',
+#          11:'November',
+#          12:'December'		}
+# df_final['Month_name'] = df_final['Month'].map(month)
+# df_final.drop("Month", axis=1, inplace = True)
+# revenues_monthly = df_final.groupby("fecha_compra")["valor_total"].sum()
+# # revenues_monthly
+# # Para el gráfico 2, el de líneas
+# revenues_monthly = df_final.set_index('fecha_compra').groupby(pd.Grouper(freq = 'ME'))['valor_total'].sum().reset_index()
+# revenues_monthly['Year'] = revenues_monthly['fecha_compra'].dt.year
+# revenues_monthly['Month'] = revenues_monthly['fecha_compra'].dt.month
+# month = {	
+#         1:'January',
+#         2:'February',
+#         3:'March',
+#         4:'April',
+#         5:'May',
+#         6:'June',
+#         7:'July',
+#         8:'August',
+#         9:'September',
+#         10:'October',
+#         11:'November',
+#         12:'December'}
+# revenues_monthly['Month'] = revenues_monthly['Month'].map(month)
+
+# # Ordenar los datos usando el diccionario
+# month_order = {
+# 	    'January': 1, 'February': 2, 'March': 3, 'April': 4, 
+# 	    'May': 5, 'June': 6, 'July': 7, 'August': 8, 
+# 	    'September': 9, 'October': 10, 'November': 11, 'December': 12
+# 	}
+# revenues_monthly['Month'] = pd.Categorical(revenues_monthly['Month'], categories=month_order.keys(), ordered=True)
+# revenues_monthly = revenues_monthly.sort_values(by=['Month'])
+# revenues_monthly.sort_values("Year", ascending=False, inplace =True)
+# print(revenues_monthly)
 
 DataStorage.df_itens_pedidos=(df_itens_pedidos)
 df_itens_pedidos=df_itens_pedidos.copy()
