@@ -1,7 +1,7 @@
 import plotly_express as px
 import pandas as pd
 
-def crear_grafico_linea(data):
+def grafico_linea(data):
     # Para el gráfico 2, el de líneas
     revenues_monthly = data.set_index('fecha_compra').groupby(pd.Grouper(freq = 'ME'))['valor_total'].sum().reset_index()
     revenues_monthly['Year'] = revenues_monthly['fecha_compra'].dt.year

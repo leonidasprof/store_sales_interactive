@@ -22,9 +22,6 @@ df_productos.head()
 df_vendedores = pd.read_csv('base/data/df_vendedores.csv')
 df_vendedores.head()
 
-df_brasil = pd.read_csv('base/data/df_brasil.csv')[['abbrev_state','name_state']]
-df_brasil.head()
-
 
 def preprocesamiento(df_itens_pedidos,df_pedidos,df_productos,df_vendedores):
     #========================================================================================
