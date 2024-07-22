@@ -1,4 +1,3 @@
-
 import os, sys
 sys.path.append(os.getcwd())
 # Lee los datos de ventas
@@ -7,8 +6,8 @@ import pandas as pd
 #df = pd.read_csv('')
 
 # Módulo para almacenar las variables calculadas
-#class DataStorage:
- #   df_ventas = None
+class DataStorage:
+    br_final = None
 
 
 df_itens_pedidos = pd.read_csv('base/data/df_itens_pedidos.csv')
@@ -23,34 +22,54 @@ df_productos.head()
 df_vendedores = pd.read_csv('base/data/df_vendedores.csv')
 df_vendedores.head()
 
-df_brasil = pd.read_csv('base/data/df_brasil.csv')
+df_brasil = pd.read_csv('base/data/df_brasil.csv')[['abbrev_state','name_state']]
 df_brasil.head()
 
 
-def preprocesamiento(df_itens_pedidos,df_pedidos,df_productos,df_vendedores,df_brasil):
+def preprocesamiento(df_itens_pedidos,df_pedidos,df_productos,df_vendedores):
+    #========================================================================================
+                            #Preprocesamiento DF_ITENS_PEDIDOS
+    #========================================================================================
+    states = {
+    'AC': 'Acre', 'AL': 'Alagoas', 'AP': 'Amapá', 'AM': 'Amazonas', 'BA': 'Bahia',
+    'CE': 'Ceará', 'DF': 'Distrito Federal', 'ES': 'Espírito Santo', 'GO': 'Goiás',
+    'MA': 'Maranhão', 'MT': 'Mato Grosso', 'MS': 'Mato Grosso do Sul', 'MG': 'Minas Gerais',
+    'PA': 'Pará', 'PB': 'Paraíba', 'PR': 'Paraná', 'PE': 'Pernambuco', 'PI': 'Piauí',
+    'RJ': 'Rio de Janeiro', 'RN': 'Rio Grande do Norte', 'RS': 'Rio Grande do Sul',
+    'RO': 'Rondônia', 'RR': 'Roraima', 'SC': 'Santa Catarina', 'SP': 'São Paulo',
+    'SE': 'Sergipe', 'TO': 'Tocantins'
+    }
+    
     df_itens_pedidos.drop_duplicates(inplace=True)
     df_itens_pedidos['producto_id'].drop_duplicates(inplace=True)
     df_itens_pedidos=df_itens_pedidos.dropna().reset_index(drop=True)
     df_itens_pedidos['abbrev_state']=df_itens_pedidos['ciudad'].str.split("-").str[1]
-
+    df_itens_pedidos['state_name'] = df_itens_pedidos['ciudad'].map(states)
+   #========================================================================================
+                            #Preprocesamiento DF_PEDIDOS
+    #========================================================================================
     df_pedidos.drop_duplicates(inplace=True)
     df_pedidos['producto_id'].drop_duplicates(inplace=True)
     df_pedidos['fecha_compra']=pd.to_datetime(df_pedidos['fecha_compra'])
     df_pedidos=df_pedidos.dropna().reset_index(drop=True)
-
+    #========================================================================================
+                            #Preprocesamiento DF_PRODUCTOS
+    #========================================================================================
     df_productos.drop_duplicates(inplace=True)
     df_productos['producto_id'].drop_duplicates(inplace=True)
     df_productos=df_productos.dropna().reset_index(drop=True)
     df_productos['tipo_producto']=df_productos['producto'].str.split("_").str[0]
-
+  #========================================================================================
+                            #Preprocesamiento DF_VENDEDORES
+    #========================================================================================
     df_vendedores.drop_duplicates(inplace=True)
     df_vendedores=df_vendedores.dropna().reset_index(drop=True)
+    df_vendedores = df_vendedores[df_vendedores['nombre_vendedor'] != 'Unknown']
 
-    df_brasil = df_brasil.drop(df_brasil.columns[0], axis=1)
 
-    return df_itens_pedidos,df_pedidos,df_productos,df_vendedores,df_brasil
+    return df_itens_pedidos,df_pedidos,df_productos,df_vendedores
 
-df_itens_pedidos,df_pedidos,df_productos,df_vendedores,df_brasil=preprocesamiento(df_itens_pedidos,df_pedidos,df_productos,df_vendedores,df_brasil)
+df_itens_pedidos,df_pedidos,df_productos,df_vendedores=preprocesamiento(df_itens_pedidos,df_pedidos,df_productos,df_vendedores)
 
 print(df_itens_pedidos.info())
 print('-------------')
@@ -62,10 +81,14 @@ print(df_vendedores.info())
 
 merged1 = pd.merge(df_itens_pedidos, df_pedidos, on=['producto_id', 'pedido_id'])
 merged2 = pd.merge(merged1, df_productos, on='producto_id')
-merged3 = pd.merge(merged2, df_vendedores, on='vendedor_id')
+br_final = pd.merge(merged2, df_vendedores, on='vendedor_id')
 
-df_brasil.head()
-df_productos.head()
-br_final=df_brasil.merge(merged3,on=["abbrev_state"],how='outer')
-br_final.info()
+
+DataStorage.br_final=(br_final)
+
+
+
+
+
+
 
