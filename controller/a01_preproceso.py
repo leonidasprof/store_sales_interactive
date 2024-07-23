@@ -40,8 +40,9 @@ def preprocesamiento(df_itens_pedidos,df_pedidos,df_productos,df_vendedores):
     df_itens_pedidos.drop_duplicates(inplace=True)
     df_itens_pedidos['producto_id'].drop_duplicates(inplace=True)
     df_itens_pedidos=df_itens_pedidos.dropna().reset_index(drop=True)
-    df_itens_pedidos['abbrev_state']=df_itens_pedidos['ciudad'].str.split("-").str[1]
-    df_itens_pedidos['state_name'] = df_itens_pedidos['ciudad'].map(states)
+    df_itens_pedidos['sigla']=df_itens_pedidos['ciudad'].str.split("-").str[1]
+    df_itens_pedidos['state_name'] = df_itens_pedidos['sigla'].map(states)
+ 
    #========================================================================================
                             #Preprocesamiento DF_PEDIDOS
     #========================================================================================
@@ -82,3 +83,5 @@ br_final = pd.merge(merged2, df_vendedores, on='vendedor_id')
 
 
 DataStorage.br_final=(br_final)
+
+

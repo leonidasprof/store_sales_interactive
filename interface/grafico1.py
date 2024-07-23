@@ -1,36 +1,40 @@
 import plotly.graph_objects as go
 import pandas as pd 
 import requests
-
-# Función para obtener el archivo GeoJSON de los estados de Brasil
-def obtener_geojson_brasil():
-    url = 'https://raw.githubusercontent.com/codeforamerica/click_that_hood/master/public/data/brazil-states.geojson'
-    response = requests.get(url)
-    return response.json()
+from functions.function_format_num import formato_numero
 
 
 def grafico_mapa(df):
-    df=df.rename(columns={'abbrev_state':'sigla'})
-    df_mapa = df.groupby('sigla').agg({
+   
+    # Función para obtener el archivo GeoJSON de los estados de Brasil
+    def obtener_geojson_brasil():
+        url = 'https://raw.githubusercontent.com/codeforamerica/click_that_hood/master/public/data/brazil-states.geojson'
+        response = requests.get(url)
+        return response.json()
+    
+    df_mapa = df.groupby('state_name').agg({
         'valor_total': 'sum',
     }).reset_index()
-
+    df_mapa['valor_total'] = (df_mapa['valor_total'] / 1000000).apply(lambda x: round(x, 2))
     geojson_brasil = obtener_geojson_brasil()
-
     fig = go.Figure(data=go.Choropleth(
         geojson=geojson_brasil,
-        locations=df_mapa['sigla'],  # Coordenadas espaciales
-        z=df_mapa['valor_total'].astype(float),  # Datos a codificar por color
-        featureidkey="properties.sigla",  # Clave para acceder a las siglas en el archivo GeoJSON
+        locations=df_mapa['state_name'],  # Coordenadas espaciales
+        z=df_mapa['valor_total'],  # Datos a codificar por color
+        featureidkey="properties.name",  # Clave para acceder a las siglas en el archivo GeoJSON
         colorscale="Blues",  # Escala de colores
-        #colorbar_title ="Ingresos ($)",
+        colorbar_tickprefix='$',
+        colorbar_title="Ingresos ($)",
         marker_line_color='black',
-           colorbar=dict(
+        colorbar=dict(
             title='Ingresos ($)',
-            len=0.8,  # Proporción de la longitud de la barra de colores
+            
+            tickprefix='$',
+           tickformat='.2f',  # Formato para los ticks de la barra de color
+            len=0.9,  # Proporción de la longitud de la barra de colores
             y=0.5,  # Posición vertical de la barra de colores
-            thickness=20,  # Grosor de la barra de colores
-        )# Color de las líneas de los bordes
+            thickness=25,  # Grosor de la barra de colores
+        )
     ))
     
     fig.update_geos(
@@ -40,23 +44,19 @@ def grafico_mapa(df):
 
     fig.update_layout(
         title='Valores por estado en Brasil',
-       # plot_bgcolor='rgba(0, 0, 0, 0)',  # Hacer el fondo del gráfico transparente
-        #paper_bgcolor='rgba(0, 0, 0, 0)',  # Hacer el fondo del papel transparente
         geo=dict(
             bgcolor='rgba(0, 0, 0, 0)',
-            
         ),
         width=2000,  # Ancho del gráfico
-        height=500 # Altura del gráfico
-    )  # Cambiar el fondo del gráfico a azul
-      
+        height=500  # Altura del gráfico
+    )
     
+    fig.update_traces(
+        hovertemplate='Estado: %{location}<br>Valor Total: $%{z}<extra></extra>',
+    )
 
     return fig
 
-
-
-    
 
 
 
