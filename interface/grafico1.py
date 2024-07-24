@@ -15,7 +15,7 @@ def grafico_mapa(df):
     df_mapa = df.groupby('state_name').agg({
         'valor_total': 'sum',
     }).reset_index()
-    df_mapa['valor_total'] = (df_mapa['valor_total'] / 1000000).apply(lambda x: round(x, 2))
+    #df_mapa['valor_total'] = (df_mapa['valor_total'] / 1000000).apply(lambda x: round(x, 2))
     geojson_brasil = obtener_geojson_brasil()
     fig = go.Figure(data=go.Choropleth(
         geojson=geojson_brasil,
@@ -24,17 +24,10 @@ def grafico_mapa(df):
         featureidkey="properties.name",  # Clave para acceder a las siglas en el archivo GeoJSON
         colorscale="Blues",  # Escala de colores
         colorbar_tickprefix='$',
+        customdata=df[['state_name','valor_total']],
         colorbar_title="Ingresos ($)",
         marker_line_color='black',
-        colorbar=dict(
-            title='Ingresos ($)',
-            
-            tickprefix='$',
-           tickformat='.2f',  # Formato para los ticks de la barra de color
-            len=0.9,  # Proporción de la longitud de la barra de colores
-            y=0.5,  # Posición vertical de la barra de colores
-            thickness=25,  # Grosor de la barra de colores
-        )
+       colorbar={'tickformat':'.3s'}
     ))
     
     fig.update_geos(
@@ -43,7 +36,7 @@ def grafico_mapa(df):
     )
 
     fig.update_layout(
-        title='Valores por estado en Brasil',
+        title='Ingresos por Estado ($)',
         geo=dict(
             bgcolor='rgba(0, 0, 0, 0)',
         ),
@@ -52,7 +45,7 @@ def grafico_mapa(df):
     )
     
     fig.update_traces(
-        hovertemplate='Estado: %{location}<br>Valor Total: $%{z}<extra></extra>',
+        hovertemplate='Estado: %{location}<br>Valor Total: $%{z:,.0f}<extra></extra>',
     )
 
     return fig
