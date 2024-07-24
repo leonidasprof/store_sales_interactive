@@ -17,7 +17,7 @@ br_final=DataStorage.br_final
 st.set_page_config(layout='wide')
 
 #Configuramos los filtros-------------------------------------------------------
-st.sidebar.image('https://i.postimg.cc/8kvVTRJp/brazil.png')
+st.sidebar.image('https://i.postimg.cc/Hny9LmTT/brazil.png')
 st.sidebar.title('Filtros')
 
 estados=sorted(list(br_final['state_name'].unique()))
@@ -35,24 +35,18 @@ graf_barras_producto = grafico_barras_producto(br_final)
 #-------------------------- Se calcula el delta cuando este el filtro del año ------------------
 delta_revenue,delta_ventas=delta(br_final,'2020')
 
-st.title('Dashboard de Ventas :shopping_trolley:')
+
+st.header(':shopping_trolley: DASHBOARD :green[BRASİ-İOPE] :shopping_bags:', divider='rainbow')
+
 col1,col2=st.columns(2)
 
 
 
 with col1:
-    st.metric('**Total de Revenues**',formato_numero( br_final['valor_total'].sum()),delta=delta_revenue)
+    st.metric(' 💰 **Total de Revenues**',formato_numero( br_final['valor_total'].sum()),delta=delta_revenue)
     st.plotly_chart(graf_mapa)
     st.plotly_chart(graf_barras_ciudades,use_container_width=True)
 with col2:
-    st.metric('**Total de Ventas**', formato_numero(br_final['cantidad'].sum()),delta=delta_ventas)
+    st.metric(' 💲 **Total de Ventas**', formato_numero(br_final['cantidad'].sum()),delta=delta_ventas)
     st.plotly_chart(graf_linea,use_container_width=True)
     st.plotly_chart(graf_barras_producto,use_container_width=True)
-
-
-
-
-# Mostrando filtros-------------------------------------------------
-dataframe_toggle = st.toggle("Hide/Show Dataframe", value=False)
-if dataframe_toggle:
-    st.dataframe(br_final.head(15))
