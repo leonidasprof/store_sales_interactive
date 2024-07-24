@@ -27,7 +27,10 @@ def grafico_mapa(df):
         customdata=df[['state_name','valor_total']],
         colorbar_title="Ingresos ($)",
         marker_line_color='black',
-       colorbar={'tickformat':'.3s'}
+       colorbar={'tickformat':'.3s',
+                  'x': 0.88,  # Ajusta la posición x de la barra de colores
+                  'xpad': 10  # Ajusta la separación horizontal
+                  }
     ))
     
     fig.update_geos(
