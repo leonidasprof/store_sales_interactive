@@ -83,5 +83,3 @@ br_final = pd.merge(merged2, df_vendedores, on='vendedor_id')
 
 
 DataStorage.br_final=(br_final)
-
-

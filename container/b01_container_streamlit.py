@@ -26,7 +26,16 @@ ciudades = st.sidebar.multiselect('Estados', estados)
 if ciudades:
     br_final=br_final[br_final['state_name'].isin(ciudades)]
 
+# Filtro producto --------------------------------------------------------
+br_final["tipo_productos"] = br_final["tipo_producto"].str.split(" ").str[0]
+productos = sorted(list(br_final["tipo_productos"].dropna().unique()))
+productos.insert(0,"Todos")
+producto = st.sidebar.selectbox("Productos",productos)
 
+
+if producto != "Todos":
+    br_final = br_final[br_final["tipo_productos"] == producto]
+    
 # Interacción de filtros--------------------------------------------------------
 graf_mapa=grafico_mapa(br_final)
 graf_linea = grafico_linea(br_final)
@@ -34,6 +43,8 @@ graf_barras_ciudades = grafico_barras_ciudades(br_final)
 graf_barras_producto = grafico_barras_producto(br_final)
 #-------------------------- Se calcula el delta cuando este el filtro del año ------------------
 delta_revenue,delta_ventas=delta(br_final,'2020')
+
+
 
 st.title('Dashboard de Ventas :shopping_trolley:')
 col1,col2=st.columns(2)
