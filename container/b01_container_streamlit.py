@@ -31,7 +31,7 @@ graf_mapa=grafico_mapa(br_final)
 graf_linea = grafico_linea(br_final)
 graf_barras_ciudades = grafico_barras_ciudades(br_final)
 #-------------------------- Se calcula el delta cuando este el filtro del año ------------------
-delta_revenue,delta_ventas=delta(br_final,'2021')
+delta_revenue,delta_ventas=delta(br_final,'2019')
 
 st.title('Dashboard de Ventas :shopping_trolley:')
 col1,col2=st.columns(2)
