@@ -2,12 +2,11 @@ import plotly_express as px
 import pandas as pd
 
 def grafico_barras_producto(data):
-    data["tipo_productos"] = data["tipo_producto"].str.split(" ").str[0]
-    revenues_productos = data.groupby("tipo_productos")["valor_total"].sum().sort_values(ascending = False).reset_index()
+    revenues_productos = data.groupby("tipo_producto")["valor_total"].sum().sort_values(ascending = False).reset_index()
     
     # Creando el gráfico
     fig = px.bar(revenues_productos.head(10),
-        x = 'tipo_productos',
+        x = 'tipo_producto',
         y = 'valor_total',
         text = 'valor_total',
         title = "Top ingresos por Producto ($)"
