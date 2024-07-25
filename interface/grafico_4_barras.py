@@ -9,10 +9,12 @@ def grafico_barras_producto(data):
     fig = px.bar(revenues_productos.head(10),
         x = 'tipo_productos',
         y = 'valor_total',
-        text = 'valor_total'
+        text = 'valor_total',
+        title = "Top ingresos por Producto ($)"
     )
     fig.update_layout(yaxis_title='Ingresos ($)',
                               xaxis_title='Tipo de Producto',
                               showlegend=False)
     fig.update_xaxes(tickangle=45)
+    fig.update_traces(texttemplate='%{text:.3s}')
     return fig

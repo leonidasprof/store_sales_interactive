@@ -29,11 +29,14 @@ def grafico_linea(data):
     revenues_monthly['Month'] = pd.Categorical(revenues_monthly['Month'], categories=month_order.keys(), ordered=True)
     revenues_monthly = revenues_monthly.sort_values(by=['Month'])
         
-    fig_grafico_lineas = px.line(revenues_monthly,
-    x = 'Month',
-    y = 'valor_total',
-    markers = True,
-    range_y = (0, revenues_monthly.max()),
-    color = 'Year')
-    
-    return fig_grafico_lineas
+    fig = px.line(revenues_monthly,
+                                 x = 'Month',
+                                 y = 'valor_total',
+                                 markers = True,
+                                 range_y = (0, revenues_monthly.max()),
+                                 color = 'Year',
+                                 title = "Top ingresos por Producto ($)")
+    fig.update_layout(yaxis_title='Ingresos ($)',
+                              xaxis_title='Meses')
+    fig.update_xaxes(tickangle=45)
+    return fig
