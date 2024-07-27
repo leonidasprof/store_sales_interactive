@@ -4,8 +4,8 @@ import plotly_express as px
 
 def grafico_pizza(df):
     
-    color_sequence = ['#003f5c', '#2f4b7c', '#665191', '#a05195', '#d45087']
-    
+    color_sequence = ['#003f5c', '#2f4b7c', '#4361a0', '#5a73c7', '#90baf7']
+
     vendedores = (
         df.groupby('nombre_vendedor')[['cantidad']].sum()
         .sort_values('cantidad',ascending=False)
