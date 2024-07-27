@@ -7,18 +7,19 @@ def grafico_linea(data):
     revenues_monthly['Year'] = revenues_monthly['fecha_compra'].dt.year
     revenues_monthly['Month'] = revenues_monthly['fecha_compra'].dt.month
     month = {	
-            1:'January',
-            2:'February',
-            3:'March',
-            4:'April',
-            5:'May',
-            6:'June',
-            7:'July',
-            8:'August',
-            9:'September',
-            10:'October',
-            11:'November',
-            12:'December'}
+                1:'January',
+                2:'February',
+                3:'March',
+                4:'April',
+                5:'May',
+                6:'June',
+                7:'July',
+                8:'August',
+                9:'September',
+                10:'October',
+                11:'November',
+                12:'December'
+            }
     revenues_monthly['Month'] = revenues_monthly['Month'].map(month)
     # Ordenar los datos usando el diccionario
     month_order = {
@@ -29,14 +30,26 @@ def grafico_linea(data):
     revenues_monthly['Month'] = pd.Categorical(revenues_monthly['Month'], categories=month_order.keys(), ordered=True)
     revenues_monthly = revenues_monthly.sort_values(by=['Month'])
         
-    fig = px.line(revenues_monthly,
-                                 x = 'Month',
-                                 y = 'valor_total',
-                                 markers = True,
-                                 range_y = (0, revenues_monthly.max()),
-                                 color = 'Year',
-                                 title = "Top ingresos por Producto ($)")
-    fig.update_layout(yaxis_title='Ingresos ($)',
-                              xaxis_title='Meses')
+    fig = px.line(
+        revenues_monthly,
+        x = 'Month',
+        y = 'valor_total',
+        markers = True,
+        custom_data  = ['Year'],
+        range_y = (0, revenues_monthly.max()),
+        color = 'Year',
+        title = "Top ingresos por Producto ($)"
+    )
+    
+    fig.update_layout(
+        yaxis_title='Ingresos ($)',
+        xaxis_title='Meses'
+    )
+    
+    fig.update_traces(
+        texttemplate = '',
+        hovertemplate = '<b>Año: %{customdata[0]}</b><br>Mes: %{x}<br>Ingresos totales: $%{y:,.0f}<extra></extra>'
+    )
+    
     fig.update_xaxes(tickangle=45)
     return fig
