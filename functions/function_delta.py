@@ -1,6 +1,6 @@
 # docstring
 
-def delta(df, año):
+def delta(df, año='2019'):
     """
     Calcula el cambio porcentual en ingresos y cantidad de ventas entre dos años consecutivos en un DataFrame.
 

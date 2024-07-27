@@ -34,21 +34,24 @@ productos = sorted(list(br_final["tipo_productos"].dropna().unique()))
 productos.insert(0,"Todos")
 producto = st.sidebar.selectbox("Productos",productos)
 
-
+    #-------------------------- Se calcula el delta cuando este el filtro del año ------------------
+delta_revenue,delta_ventas=delta(br_final)
 if producto != "Todos":
     br_final = br_final[br_final["tipo_productos"] == producto]
 
 
 años = st.sidebar.checkbox('Todo el periodo', value=True)
 if not años:
-    año = st.sidebar.slider(
+    año1 = st.sidebar.slider(
         'Año',
         br_final['fecha_compra'].dt.year.min(), 
         br_final['fecha_compra'].dt.year.max()
-    )
 
+    )
+    #-------------------------- Se calcula el delta cuando este el filtro del año ------------------
+    delta_revenue,delta_ventas=delta(br_final,año1)
 if not años:
-	br_final = br_final[br_final['fecha_compra'].dt.year == año]
+	br_final = br_final[br_final['fecha_compra'].dt.year == año1]
 
 
 # Interacción de filtros--------------------------------------------------------
@@ -58,8 +61,7 @@ graf_barras_ciudades = grafico_barras_ciudades(br_final)
 graf_barras_producto = grafico_barras_producto(br_final)
 graf_pizza = grafico_pizza(br_final)
 graf_ingresos = grafico_ingresos_vendedores(br_final)
-#-------------------------- Se calcula el delta cuando este el filtro del año ------------------
-delta_revenue,delta_ventas=delta(br_final,'2020')
+
 
 st.header(':shopping_trolley: DASHBOARD :green[BRASİ-İOPE] :shopping_bags:', divider='rainbow')
 
