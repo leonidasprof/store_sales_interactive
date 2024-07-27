@@ -24,7 +24,7 @@ def grafico_barras_ciudades(df):
     )
     fig.update_traces(
         texttemplate='%{text:.3s}',
-        hovertemplate='<b>Estado: %{x}</b><br>Valor Total: $%{y:,.0f}<extra></extra>'
+        hovertemplate='<b>%{x}</b><br>Valor Total: $%{y:,.0f}<extra></extra>'
     )
     fig.update_xaxes(tickangle=45)
     

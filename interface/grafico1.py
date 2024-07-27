@@ -49,7 +49,7 @@ def grafico_mapa(df):
     )
     
     fig.update_traces(
-        hovertemplate='<b>Estado: %{location}</b><br>Valor Total: $%{z:,.0f}<extra></extra>',
+        hovertemplate='<b>%{location}</b><br>Valor Total: $%{z:,.0f}<extra></extra>',
     )
 
     return fig
