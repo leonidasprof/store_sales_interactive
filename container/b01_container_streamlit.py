@@ -36,6 +36,19 @@ producto = st.sidebar.selectbox("Productos",productos)
 
 if producto != "Todos":
     br_final = br_final[br_final["tipo_productos"] == producto]
+
+
+años = st.sidebar.checkbox('Todo el periodo', value=True)
+if not años:
+    año = st.sidebar.slider(
+        'Año',
+        br_final['fecha_compra'].dt.year.min(), 
+        br_final['fecha_compra'].dt.year.max()
+    )
+
+if not años:
+	br_final = br_final[br_final['fecha_compra'].dt.year == año]
+
     
 # Interacción de filtros--------------------------------------------------------
 graf_mapa=grafico_mapa(br_final)
