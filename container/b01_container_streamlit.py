@@ -10,9 +10,10 @@ from interface.grafico_2 import grafico_linea
 from interface.grafico_3_barras import grafico_barras_ciudades
 from interface.grafico_4_barras import grafico_barras_producto
 from interface.grafico_5 import grafico_pizza
+from interface.grafico_6 import grafico_ingresos_vendedores
+
+
 br_final=DataStorage.br_final
-
-
 
 #Configuracion
 st.set_page_config(layout='wide')
@@ -49,31 +50,28 @@ if not años:
 if not años:
 	br_final = br_final[br_final['fecha_compra'].dt.year == año]
 
-    
+
 # Interacción de filtros--------------------------------------------------------
 graf_mapa=grafico_mapa(br_final)
 graf_linea = grafico_linea(br_final)
 graf_barras_ciudades = grafico_barras_ciudades(br_final)
 graf_barras_producto = grafico_barras_producto(br_final)
 graf_pizza = grafico_pizza(br_final)
+graf_ingresos = grafico_ingresos_vendedores(br_final)
 #-------------------------- Se calcula el delta cuando este el filtro del año ------------------
 delta_revenue,delta_ventas=delta(br_final,'2020')
 
-
-
-
 st.header(':shopping_trolley: DASHBOARD :green[BRASİ-İOPE] :shopping_bags:', divider='rainbow')
 
-col1,col2=st.columns(2)
-
-
+col1, col2=st.columns(2)
 
 with col1:
-    st.metric(' 💰 **Total de Revenues**',formato_numero( br_final['valor_total'].sum()),delta=delta_revenue)
-    st.plotly_chart(graf_mapa)
-    st.plotly_chart(graf_barras_ciudades,use_container_width=True)
+    st.metric(' 💰 **Total de Revenues**',formato_numero(br_final['valor_total'].sum()),delta=delta_revenue)
+    st.plotly_chart(graf_mapa, use_container_width=True)
+    st.plotly_chart(graf_barras_ciudades, use_container_width=True)
+    st.plotly_chart(graf_ingresos, use_container_width=True)
 with col2:
     st.metric(' 💲 **Total de Ventas**', formato_numero(br_final['cantidad'].sum()),delta=delta_ventas)
-    st.plotly_chart(graf_linea,use_container_width=True)
-    st.plotly_chart(graf_barras_producto,use_container_width=True)
-    st.plotly_chart(graf_pizza)
+    st.plotly_chart(graf_linea, use_container_width=True)
+    st.plotly_chart(graf_barras_producto, use_container_width=True)
+    st.plotly_chart(graf_pizza, use_container_width=True)
