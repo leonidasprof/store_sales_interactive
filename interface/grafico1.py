@@ -5,7 +5,7 @@ from functions.function_format_num import formato_numero
 
 
 def grafico_mapa(df):
-   
+
     # Función para obtener el archivo GeoJSON de los estados de Brasil
     def obtener_geojson_brasil():
         url = 'https://raw.githubusercontent.com/codeforamerica/click_that_hood/master/public/data/brazil-states.geojson'
@@ -27,11 +27,12 @@ def grafico_mapa(df):
         customdata=df[['state_name','valor_total']],
         colorbar_title="Ingresos ($)",
         marker_line_color='black',
-       colorbar={'tickformat':'.3s',
-                  'x': 0.88,  # Ajusta la posición x de la barra de colores
-                  'xpad': 10  # Ajusta la separación horizontal
-                  }
-    ))
+        colorbar={
+            'tickformat':'.3s',
+            'x': 0.88,  # Ajusta la posición x de la barra de colores
+            'xpad': 10  # Ajusta la separación horizontal
+            }
+        ))
     
     fig.update_geos(
         fitbounds="locations",  # Ajustar el rango del mapa a los estados presentes en el DataFrame
@@ -48,7 +49,7 @@ def grafico_mapa(df):
     )
     
     fig.update_traces(
-        hovertemplate='Estado: %{location}<br>Valor Total: $%{z:,.0f}<extra></extra>',
+        hovertemplate='<b>Estado: %{location}</b><br>Valor Total: $%{z:,.0f}<extra></extra>',
     )
 
     return fig

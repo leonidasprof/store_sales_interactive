@@ -24,7 +24,13 @@ def grafico_pizza(df):
         color_discrete_sequence = color_sequence
     )
     
-    fig.update_traces(textposition='inside', textinfo='percent+label')
+    fig.update_traces(
+        textposition='inside',
+        textinfo='percent+label',
+        texttemplate='%{label}<br>%{percent:,.2%}',
+        hovertemplate='<b>%{label}</b><br>Ventas Totales: %{value:,.0f}<extra></extra>'
+    )
+    
     fig.update_layout(showlegend=False)
     
     return fig
