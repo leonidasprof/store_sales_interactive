@@ -1,4 +1,4 @@
-<h1>Store Sales Dashboard</h1>
+<h1>Store Sales Dashboard Interactive</h1>
 
 > [!NOTE]
 > Este es un proyecto que pretende en base a un análisis de los datos de una empresa ficticia de moda generar insight de negocio enfocados en las ventas y las posibles mejoras. <br>
