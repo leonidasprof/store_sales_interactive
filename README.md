@@ -93,7 +93,10 @@ Dashboard Interactive Open:
 </table>
 
 
-
+> [!IMPORTANT]
+> Esto fue un proyecto que participamos los miembros del canal del
+> 
+>[![](https://img.shields.io/youtube/channel/subscribers/UCuerQOTskuNkddcT738357g?style=for-the-badge&logo=youtube&label=Bootcamp%20Xperience)](https://www.youtube.com/@BootcampXperience)
 
 
 
