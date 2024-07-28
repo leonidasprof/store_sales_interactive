@@ -1,4 +1,4 @@
-<h1 style="text-align: center;">💸Store Sales Analysis SQL📊</h1>
+<h1 align="center"><b><big>💸Store Sales Interactive📊</big></b></h1>
 
 > [!NOTE]
 > Este es un proyecto que pretende en base a un análisis de los datos de una empresa ficticia de moda generar insight de negocio enfocados en las ventas y las posibles mejoras. <br>
@@ -35,12 +35,55 @@ Dashboard Interactive Open:
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://dash-store-brazil-analytics.streamlit.app/)
 
-
 ![Mi video2](https://github.com/user-attachments/assets/aa8eba54-72e1-41e2-8cad-a0dae1dd8876)
-
 
 <p align="center">
     <a href="https://dash-store-brazil-analytics.streamlit.app/" target="_blank">
         <img src="https://img.shields.io/badge/Visita%20el%20dashboard%20de%20an%C3%A1lisis%20de%20ventas-007bff?style=for-the-badge&logo=appveyor" alt="Visita el dashboard de análisis de ventas">
     </a>
 </p>
+
+<table>
+  <tr>
+    <td width="30%">
+      <h3 align="center">Gabriel Chavez</h3>
+      <div align="center">
+        <a href="#" target="_blank">
+          <img src="" width="400" alt="Financial Fraud"> 
+        </a>
+        <p>
+           <a href="https://www.linkedin.com/feed/update/urn:li:activity:7201801202420830208/" target="_blank">
+            <img src="https://img.shields.io/badge/linkedin-f8f?style=for-the-badge&logo=linkedin&logoColor=black">
+          </a>
+        </p>
+      </div>
+    </td>
+      <td width="30%">
+      <h3 align="center">Mario</h3>
+      <div align="center">
+        <a href="#" target="_blank">
+          <img src="https://github.com/user-attachments/assets/9652df5f-47b8-4f44-9f81-e8af1d7060ba" width="400" alt="Financial Fraud"> 
+        </a>
+        <p>
+           <a href="https://www.linkedin.com/feed/update/urn:li:activity:7218962684245872640/" target="_blank">
+            <img src="https://img.shields.io/badge/linkedin-f93?style=for-the-badge&logo=linkedin&logoColor=black">
+          </a>
+        </p>
+      </div>
+    </td>
+    <td width="30%">
+      <h3 align="center">Lucel</h3>
+      <div align="center">
+        <a href="#" target="_blank">
+          <img src="https://i.postimg.cc/C1rfVzZJ/image1-0.jpg" width="400" alt="img">
+        </a>
+        <p>
+          <a href="#" target="_blank">
+             <img src="https://img.shields.io/badge/linkedin-000080?style=for-the-badge&logo=linkedin&logoColor=black">
+          </a>
+        </p>
+        <p></p>
+      </div>
+    </td>
+  </tr>
+</table>
