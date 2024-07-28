@@ -1,4 +1,4 @@
-<h1>Store Sales Dashboard Interactive</h1>
+<h1 style="text-align: center;">💸Store Sales Analysis SQL📊</h1>
 
 > [!NOTE]
 > Este es un proyecto que pretende en base a un análisis de los datos de una empresa ficticia de moda generar insight de negocio enfocados en las ventas y las posibles mejoras. <br>
@@ -11,19 +11,30 @@
 
 <h2>Tecnologías Usadas</h2>
 
-![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white) ![NumPy](https://img.shields.io/badge/numpy-%23013243.svg?style=for-the-badge&logo=numpy&logoColor=white) ![Plotly](https://img.shields.io/badge/Plotly-%233F4F75.svg?style=for-the-badge&logo=plotly&logoColor=white) [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://<your-custom-subdomain>.streamlit.app)
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white)
+![NumPy](https://img.shields.io/badge/numpy-%23013243.svg?style=for-the-badge&logo=numpy&logoColor=white)
+![Plotly](https://img.shields.io/badge/Plotly-%233F4F75.svg?style=for-the-badge&logo=plotly&logoColor=white)
+![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
+![Pandas](https://img.shields.io/badge/PlotlyExpress-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white)
+![VS Code](https://img.shields.io/badge/VS%20Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white)
 
-<h2>Objetivos</h2>
-  
-  1. <p align="justify"> ¿Cual es el Top 5 productos más vendidos históricamente? </p>
-  2. <p align="justify"> ¿Cual es la evolución histórica de las ingresos netos? </p>
-  3. <p align="justify"> ¿Cuáles son los ingresos netos por vendedor por año? </p>
-  4. <p align="justify"> ¿Cuáles son las ciudades que proporcionan mayores ingresos netos? </p>
-  5. <p align="justify"> ¿Existe otro insight que puedas proporcionar?</p>
-  6. <p align="justify"> Extra </p>
+### **Preguntas** ❓
 
-Dashboard Interactive (https://dash-store-brazil-analytics.streamlit.app/)
+1. ¿Cuál es el Top 5 productos más vendidos históricamente? 📉
 
-![image](https://github.com/user-attachments/assets/e0d00bc4-ab21-4bbe-9981-341a03f989a3)
+2. ¿Cuál es la evolución histórica de las ingresos netos? 📊
 
-![image](https://github.com/user-attachments/assets/72c2a085-40e7-4f34-ada6-ae592b6b40f4)
+3. ¿Cuáles son los ingresos netos por vendedor por año? 📆
+
+4. ¿Cuáles son las ciudades que proporcionan mayores ingresos netos? 💰
+
+5. ¿Existe otro insight que puedas proporcionar? 🔍
+
+Dashboard Interactive Open:
+
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://dash-store-brazil-analytics.streamlit.app/)
+
+<div style="text-align: center;">
+    <a href="https://dash-store-brazil-analytics.streamlit.app/" target="_blank" style="display: inline-block; padding: 10px 20px; font-size: 16px; color: white; background-color: #007bff; text-decoration: none; border-radius: 5px;">Visita el dashboard de análisis de ventas</a>
+</div>

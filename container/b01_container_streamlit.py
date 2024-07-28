@@ -23,7 +23,7 @@ st.sidebar.image('https://i.postimg.cc/Hny9LmTT/brazil.png')
 st.sidebar.title('Filtros')
 
 estados=sorted(list(br_final['state_name'].unique()))
-ciudades = st.sidebar.multiselect('Estados', estados)
+ciudades = st.sidebar.multiselect('Estados', estados,placeholder="Select State Name",)
 
 if ciudades:
     br_final=br_final[br_final['state_name'].isin(ciudades)]
@@ -69,11 +69,19 @@ col1, col2=st.columns(2)
 
 with col1:
     st.metric(' 💰 **Total de Revenues**',formato_numero(br_final['valor_total'].sum()),delta=delta_revenue)
-    st.plotly_chart(graf_mapa, use_container_width=True)
+    tab1, tab2 = st.tabs(["Map Revenues by State🌎", "Bar Revenues by State📊"])
+    with tab1:
+        st.plotly_chart(graf_mapa, use_container_width=True)
+
     st.plotly_chart(graf_barras_ciudades, use_container_width=True)
     st.plotly_chart(graf_ingresos, use_container_width=True)
 with col2:
     st.metric(' 💲 **Total de Ventas**', formato_numero(br_final['cantidad'].sum()),delta=delta_ventas)
-    st.plotly_chart(graf_linea, use_container_width=True)
+    tab1, tab2 = st.tabs(["Hist Revenues by Product 📈", "Bar Revenues by Product 👜"])
+    with tab1:
+        st.plotly_chart(graf_linea, use_container_width=True)
     st.plotly_chart(graf_barras_producto, use_container_width=True)
     st.plotly_chart(graf_pizza, use_container_width=True)
+
+
+    

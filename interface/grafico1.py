@@ -40,7 +40,11 @@ def grafico_mapa(df):
     )
 
     fig.update_layout(
-        title='Ingresos por Estado ($)',
+        title={
+            'text': 'Ingresos por Estado ($)',
+            'x': 0.5,
+            'xanchor': 'center'
+        },
         geo=dict(
             bgcolor='rgba(0, 0, 0, 0)',
         ),

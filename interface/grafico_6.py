@@ -25,7 +25,8 @@ def grafico_ingresos_vendedores(df):
     fig.update_layout(
         xaxis_title = 'Ingresos ($)',
         yaxis_title = 'Vendedores',
-        showlegend = False
+        showlegend = False,
+         title_x=0.4
     )
     
     fig.update_traces(

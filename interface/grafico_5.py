@@ -31,6 +31,7 @@ def grafico_pizza(df):
         hovertemplate='<b>%{label}</b><br>Ventas Totales: %{value:,.0f}<extra></extra>'
     )
     
-    fig.update_layout(showlegend=False)
+    fig.update_layout(showlegend=False,
+                      title_x=0.4)  # Centra el título
     
     return fig

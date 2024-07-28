@@ -20,7 +20,8 @@ def grafico_barras_ciudades(df):
     fig.update_layout(
         yaxis_title='Ingresos ($)',
         xaxis_title='Estados',
-        showlegend=False
+        showlegend=False,
+        title_x=0.4  # Centra el título
     )
     fig.update_traces(
         texttemplate='%{text:.3s}',

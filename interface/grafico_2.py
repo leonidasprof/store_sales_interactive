@@ -43,7 +43,8 @@ def grafico_linea(data):
     
     fig.update_layout(
         yaxis_title='Ingresos ($)',
-        xaxis_title='Meses'
+        xaxis_title='Meses',
+        title_x=0.3  # Centra el título
     )
     
     fig.update_traces(

@@ -18,7 +18,8 @@ def grafico_barras_producto(data):
     fig.update_layout(
         yaxis_title='Ingresos ($)',
         xaxis_title='Tipo de Producto',
-        showlegend=False
+        showlegend=False,
+        title_x=0.4  # Centra el título
     )
     fig.update_xaxes(tickangle=45)
     fig.update_traces(
