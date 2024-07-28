@@ -43,13 +43,17 @@ Dashboard Interactive Open:
     </a>
 </p>
 
+> [!IMPORTANT]
+> Trabajo colabortativo conectados por git. 
+
+
 <table>
   <tr>
     <td width="30%">
       <h3 align="center">Gabriel Chavez</h3>
       <div align="center">
-        <a href="#" target="_blank">
-          <img src="" width="400" alt="Financial Fraud"> 
+        <a href="https://github.com/user-attachments/assets/2b62dd21-e492-4ab1-ad52-f427ce9e0332" target="_blank">
+          <img src="https://github.com/user-attachments/assets/2b62dd21-e492-4ab1-ad52-f427ce9e0332" width="400" alt="Gabriel"> 
         </a>
         <p>
            <a href="https://www.linkedin.com/feed/update/urn:li:activity:7201801202420830208/" target="_blank">
@@ -61,11 +65,11 @@ Dashboard Interactive Open:
       <td width="30%">
       <h3 align="center">Mario</h3>
       <div align="center">
-        <a href="#" target="_blank">
-          <img src="https://github.com/user-attachments/assets/9652df5f-47b8-4f44-9f81-e8af1d7060ba" width="400" alt="Financial Fraud"> 
+        <a href="https://www.linkedin.com/in/mariojarellanom/" target="_blank">
+          <img src="https://github.com/user-attachments/assets/60891b2f-5f1a-4b1d-a256-df9b36329abe" width="400" alt="Mario"> 
         </a>
         <p>
-           <a href="https://www.linkedin.com/feed/update/urn:li:activity:7218962684245872640/" target="_blank">
+           <a href="https://www.linkedin.com/in/mariojarellanom/" target="_blank">
             <img src="https://img.shields.io/badge/linkedin-f93?style=for-the-badge&logo=linkedin&logoColor=black">
           </a>
         </p>
@@ -74,11 +78,11 @@ Dashboard Interactive Open:
     <td width="30%">
       <h3 align="center">Lucel</h3>
       <div align="center">
-        <a href="#" target="_blank">
-          <img src="https://i.postimg.cc/C1rfVzZJ/image1-0.jpg" width="400" alt="img">
+        <a href="https://www.linkedin.com/in/luceldasilva/" target="_blank">
+          <img src="https://github.com/user-attachments/assets/3f2db829-74e2-4a38-a208-5b848df0c70d" width="400" alt="Lucel">
         </a>
         <p>
-          <a href="#" target="_blank">
+          <a href="https://www.linkedin.com/in/luceldasilva/" target="_blank">
              <img src="https://img.shields.io/badge/linkedin-000080?style=for-the-badge&logo=linkedin&logoColor=black">
           </a>
         </p>
@@ -87,3 +91,9 @@ Dashboard Interactive Open:
     </td>
   </tr>
 </table>
+
+
+
+
+
+
