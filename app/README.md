@@ -1,51 +1,23 @@
 # Pipeline
 
-## Info
-
-**NOTA**: Una vez empezado el proyecto borrar la sección de info y completar la descripción.
-
-+ En esta carpeta se guardan los script para ejecutar en secuencia todos los scripts para entrenar el modelo o para predecir.
-+ En este README.md se debe detallar la secuencias de los scripts ha ejecutar, descripcion y parametros.
-
 ## Descripción
 
-**NOTA**: Lo siguiente es solo un ejemplo, las estructura puede ser distinta segun necesidad de cada proyecto, borrar el ejemplo al iniciar el proyecto.
+**NOTA**: Una tienda online de moda, con presencia en todo Brasil, necesita impulsar su rendimiento utilizando sus datos de manera estratégica.
 
-
-# Proyecto X
-
-## Fuente de Informacion
-
-* Link al catalogo de tablas.
+# Proyecto Store Sales Interactive
 
 ## Parámetros
 
-* Fecha de Inicio: <descripción>
-* Numero de Arboles: <descripción>
+- Fecha de Inicio: 8/07/24
 
 ## Paso 01
 
-
 **Archivo**
+
 ```
-./models/m00_model.py
+streamlit run container/b01_container_streamlit.py
 ```
 
 **Descripcion:**
-* Script para crear un random forest
 
-**Parametros**
-* Fecha de Inicio
-* Numero de Arboles
-
-
-**Chunks:**
-* Read tablón
-* Aplicar randomforest
-* Grabar modelo
-
-## Paso 02
-
-.
-.
-.
+- Script para ejecutar la app, contiene todas las vistas sobre la app.
