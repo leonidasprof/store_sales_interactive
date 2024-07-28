@@ -21,3 +21,9 @@
   4. <p align="justify"> ¿Cuáles son las ciudades que proporcionan mayores ingresos netos? </p>
   5. <p align="justify"> ¿Existe otro insight que puedas proporcionar?</p>
   6. <p align="justify"> Extra </p>
+
+Dashboard Interactive (https://dash-store-brazil-analytics.streamlit.app/)
+
+![image](https://github.com/user-attachments/assets/e0d00bc4-ab21-4bbe-9981-341a03f989a3)
+
+![image](https://github.com/user-attachments/assets/72c2a085-40e7-4f34-ada6-ae592b6b40f4)
