@@ -39,6 +39,8 @@ Dashboard Interactive Open:
 ![Mi video2](https://github.com/user-attachments/assets/aa8eba54-72e1-41e2-8cad-a0dae1dd8876)
 
 
-<div style="text-align: center;">
-    <a href="https://dash-store-brazil-analytics.streamlit.app/" target="_blank" style="display: inline-block; padding: 10px 20px; font-size: 16px; color: white; background-color: #007bff; text-decoration: none; border-radius: 5px;">Visita el dashboard de análisis de ventas</a>
-</div>
+<p align="center">
+    <a href="https://dash-store-brazil-analytics.streamlit.app/" target="_blank">
+        <img src="https://img.shields.io/badge/Visita%20el%20dashboard%20de%20an%C3%A1lisis%20de%20ventas-007bff?style=for-the-badge&logo=appveyor" alt="Visita el dashboard de análisis de ventas">
+    </a>
+</p>
