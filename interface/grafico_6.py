@@ -31,7 +31,7 @@ def grafico_ingresos_vendedores(df):
     
     fig.update_traces(
         texttemplate = '%{text:.3s}',
-        hovertemplate = '<b>%{y}</b><br>Ingresos Totales: $%{x:,.0f}<extra></extra>'
+        hovertemplate = '<b>%{y}</b><br>Ingresos netos: $%{x:,.0f}<extra></extra>'
     )
     
     return fig
