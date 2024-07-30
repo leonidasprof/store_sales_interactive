@@ -23,7 +23,7 @@ def grafico_ingresos_vendedores(df):
     )
     
     fig.update_layout(
-        xaxis_title = 'Ingresos ($)',
+        xaxis_title = 'Ingresos Netos ($)',
         yaxis_title = 'Vendedores',
         showlegend = False,
          title_x=0.4

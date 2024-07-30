@@ -79,7 +79,8 @@ with col2:
     st.metric(' 💲 **Total de Ventas**', formato_numero(br_final['cantidad'].sum()),delta=delta_ventas)
     tab1, tab2 = st.tabs(["Hist Revenues by Product 📈", "Bar Revenues by Product 👜"])
     with tab1:
-        st.plotly_chart(graf_linea, use_container_width=True)
+        st.plotly_chart(graf_linea, use_container_width=False)
+        st.markdown('<br>'*1,unsafe_allow_html=True)
     st.plotly_chart(graf_barras_producto, use_container_width=True)
     st.plotly_chart(graf_pizza, use_container_width=True)
 
